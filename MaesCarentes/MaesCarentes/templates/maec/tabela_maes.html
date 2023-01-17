@@ -1,0 +1,61 @@
+{% extends 'maec/funcionario.html' %}
+{%block title%}Ver Mães{% endblock %}
+{% block conteudo %}
+{% load widget_tweaks %}
+<div class="content-wrap"   style="min-height: 788px;">
+    <div class="main">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-lg-6 p-r-0 title-margin-right">
+                    <div class="page-header">  
+                    </div>
+                </div>
+                    <div class="col-md-8 offset-md-3 my-3 col-lg-8 col-xl-6 col-xxl-8">
+                        <div class="card">
+                            <div class="card-header">
+                              <h4 class="card-title">Mães Cadastradas</h4>
+                            </div>
+                              <div class="card-body">
+                                <div class="table table-hover">
+                                   <table class="table table-bordered verticle-middle table-responsive-sm">
+                                    <thead>
+                                            <tr>
+                                                <th>Nome</th> 
+                                                <th>Doações</th>                                      
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                    <tbody>
+                                        {% for i in maes %}
+                                        <tr>
+                                            <td>
+                                            <span>
+                                                <a href="{% url 'url_Mperfil' i.id %}">{{ i.nome }}</a>
+                                            </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <a href="{% url 'url_eventos' i.id%}">Ver</a>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    
+                                                    <a href="{% url 'url_delete_mae' i.id %}" class="mr-4" data-toggle="tooltip" data-placement="top" title="Close">
+                                                        <i class="fa fa-close color-danger"></i>
+                                                    </a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                     </tbody>
+                                     {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'maec/funcionario.html' %}
+{%block title%}Produtos Disponíveis{% endblock %}
+{% block titulo%}Produtos Disponíveis{% endblock%}
+{% block conteudo %} 
+<div class="content-wrap"   style="min-height: 788px;">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-r-0 title-margin-right">
+                    <div class="page-header">  
+                    </div>
+                </div>
+                    <div class="col-md-8 offset-md-3 my-3 col-lg-8 col-xl-6 col-xxl-8">
+                        <div class="card">
+                            <div class="card-header">
+                              <h4 class="card-title">Doações Recebidas - Produtos</h4>
+                            </div>
+                              <div class="card-body">
+                                <div class="table table-hover">
+                                   <table class="table table-bordered verticle-middle table-responsive-sm">
+                                    <thead>
+                                            <tr>
+                                                <th>Doador</th> 
+                                                <th>Doação</th> 
+                                                <th>Detalhes</th>       
+                                                <th>Quantidade</th>
+                                                <th>Data</th>                            
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                    <tbody>
+                                        {% for i in produtos %} 
+                                        {% if i.confirmacao == False %}
+                                        <tr>
+                                            <td>{{ i.apoiador_id }}</td>
+                                            <td>{{ i.nome }}</td>
+                                            <td>{{ i.estado }}</td>
+                                            <td>{{ i.quantidade }}</td>
+                                            <td>{{ i.data }}</td>
+                                            <td>
+                                                <span>
+                                                    <a href="{% url 'url_delete_d_pro' i.id %}" class="mr-4" data-toggle="tooltip" data-placement="top" title="Close">
+                                                        <i class="fa fa-close color-danger"></i>
+                                                    </a>
+                                                    <a href="{% url 'url_d_conf_pro' i.id %}" class="mr-4" data-toggle="tooltip" data-placement="top" title="Confirmar">
+                                                        <i class="fa fa-check color-success"></i>
+                                                    </a>
+                                                </span>
+                                            </td>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                     </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 offset-md-3 my-3 col-lg-8 col-xl-6 col-xxl-8">
+                    <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Doações Recebidas - Dinheiro</h4>
+                        </div>
+                          <div class="card-body">
+                            <div class="table table-hover">
+                               <table class="table table-bordered verticle-middle table-responsive-sm">
+                                <thead>
+                                        <tr>
+                                            <th>Doador</th> 
+                                            <th>Doação</th> 
+                                            <th>Detalhes</th>       
+                                            <th>Quantidade</th>
+                                            <th>Data</th>                            
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                <tbody>
+                                    
+                                    {% for i in dinheiro %} 
+                                    {% if i.confirmacao == False %}
+                                    <tr>
+                                        <td>{{ i.apoiador_id }}</td>
+                                        <td>Dinheiro</td>
+                                        <td>{{ i.forma }}</td>
+                                        <td>R${{ i.valor }}</td>
+                                        <td>{{ i.data }}</td>
+                                        <td>
+                                            <span>
+                                                <a href="{% url 'url_delete_d_din' i.id %}" class="mr-4" data-toggle="tooltip" data-placement="top" title="Close">
+                                                    <i class="fa fa-close color-danger"></i>
+                                                </a>
+                                                <a href="{% url 'url_d_conf_din' i.id %}" class="mr-4" data-toggle="tooltip" data-placement="top" title="Confirmar">
+                                                    <i class="fa fa-check color-success"></i>
+                                                </a>
+                                            </span>
+                                        </td>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

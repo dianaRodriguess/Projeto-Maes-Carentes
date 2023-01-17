@@ -1,0 +1,47 @@
+{% extends 'maec/apoiador.html' %}
+{%block title%}Doar Produto{% endblock %}
+{% block conteudo %} 
+{% load widget_tweaks %}
+<div class="content-wrap "   style="min-height: 788px;">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">                          
+                        </div>
+                    </div>
+                </div>   
+            </div>
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-3 my-3 col-lg-8 col-xl-6 col-xxl-8">
+                            <div class="card">
+                                <div class="text-center mb-4">
+                                    <h4 >Doar Produto</h4>                                   
+                                </div>
+                                    <div class="basic-form">
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <label>Produto</label>
+                                                {% render_field formProduto.nome class+='form-control input-rounded' placeholder+='Digite Aqui' %}
+                                            </div>
+                                            <div class="form-group input-rounded"><label>Estado do produto</label>
+                                                {% render_field formProduto.estado class+='form-control input-rounded' placeholder+='Selecione' %}
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Quantidade</label>
+                                                {% render_field formProduto.quantidade type+='number' class+='form-control input-rounded' placeholder+='Quantidade' %}
+                                                </div>
+                                            <button type="submit" class="btn btn-pink btn-block btn-rounded">Salvar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

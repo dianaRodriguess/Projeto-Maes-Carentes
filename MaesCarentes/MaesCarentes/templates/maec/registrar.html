@@ -1,0 +1,89 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mães carentes</title>
+{% load static %}
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="{%static 'template1/images/logo/mini_logo.png' %}">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Styles -->
+    <link href="{%static 'template1/css/lib/font-awesome.min.css'%}" rel="stylesheet">
+    <link href="{%static 'template1/css/lib/themify-icons.css'%}" rel="stylesheet">
+    <link href="{%static 'template1/css/lib/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{%static 'template1/css/lib/helper.css'%}" rel="stylesheet">
+    <link href="{%static 'template1/css/style.css'%}" rel="stylesheet">
+</head>
+        <body class="h-100" style="background-color: #DDB4CA;" data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_1" data-headerbg="color_1" data-sidebar-style="full" data-sibebarbg="color_1" data-sidebar-position="fixed" data-header-position="fixed" data-container="wide" direction="ltr">
+
+            <div class="unix-login">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="login-content">         
+                                <div class="login-form">
+                                    <h4 class="text-center mb-4">Cadastre-se</h4>
+                                    <form   method="POST">
+                                        <div class="form-group">
+                                            {% csrf_token %}
+                                            <label><strong>Nome Completo:</strong></label>
+                                            <input type="text" class="form-control" placeholder="Nome Completo" name="nome">
+                                        </div>
+                                        <div class="form-group">
+                                            <label><strong>Email:</strong></label>
+                                            <input type="email" class="form-control" placeholder="E-mail" name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label><strong>Senha:</strong></label>
+                                            <input type="password" class="form-control" placeholder="Senha" name="senha">
+                                        </div>
+
+                                        <div class="text-center btn-primary m-b-30 m-t-30" style="background-color:red;">{% include 'maec/messages.html' %}</div>
+                                        
+                                        <div class="new-account mt-3">
+                                            <button type="submit"  class="btn btn-pink btn-block btn-rounded">Cadastrar</button>
+                                        </div>
+                                        
+                                    </form>
+                                    <div class="new-account mt-3">
+                                        <p>Já possui uma conta? <a class="text-primary" href="/login">Login</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{%static 'vendor/global/global.min.js' %}"></script>
+    <script src="{%static '/js/quixnav-init.js' %}"></script>
+    <script src="{%static '/js/custom.min.js' %}"></script>
+
+
+
+</body></html>

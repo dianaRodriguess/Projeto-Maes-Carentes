@@ -1,0 +1,93 @@
+{% extends 'maec/funcionario.html' %}
+{%block title%}Cadastrar Mãe{% endblock %}
+{% block conteudo %}
+{% load static %}
+{% load widget_tweaks %}
+<div class="content-wrap"   style="min-height: 788px;">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">                          
+                        </div>
+                    </div>
+                </div>   
+            </div>
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-3 my-3 col-lg-8 col-xl-6 col-xxl-8">
+                            <div class="card">
+                                <div class="text-center mb-4">
+                                    <h4>Cadastrar Mãe</h4>                                   
+                                </div>
+                                
+                                <div class="card-body">
+                                    <div class="basic-form">
+                                     
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-group ">
+                                                <label>Nome Completo</label>
+                                                {% render_field formMae.nome class+='form-control input-rounded' placeholder+='Digite Aqui' %}
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Data de Nascimento </label>
+                                                {% render_field formMae.dtnsc type+='date' class+='form-control input-rounded' placeholder+='dd/mm/aaaa' %}
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="phone">Celular</label>
+                                                {% render_field formMae.telefone class+='form-control input-rounded' placeholder+='(xx) 9xxxx-xxxx' %}
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Quantidade de filhos </label>
+                                                {% render_field formMae.qtdfilhos class+='form-control input-rounded' placeholder+='Digite Aqui' %}
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label>CPF</label>
+                                                {% render_field formMae.cpf class+='form-control input-rounded' placeholder+='111.222.333-44' %}
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label>Fonte de Renda</label>
+                                                {% render_field formMae.fonterenda class+='form-control input-rounded' placeholder+='Digite Aqui' %}
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Situação de Trabalho</label>
+                                                {% render_field formMae.situtrabalho class+='form-control input-rounded' placeholder+='Digite Aqui' %}
+                                            </div>
+                                           
+                                            <label>Endereço</label>
+                                            <div class="form-row">
+                                                        <div class="col mt-2 mt-sm-0">
+                                                            {% render_field formMae.cidade class+='form-control input-rounded' placeholder+='Cidade' %}
+                                                        </div>
+                                                        <div class="col mt-2 mt-sm-0">
+                                                            {% render_field formMae.bairro class+='form-control input-rounded' placeholder+='Bairro' %}
+                                                        </div>
+                                                        <div class="col sm-7 ">
+                                                            {% render_field formMae.rua class+='form-control input-rounded' placeholder+='Rua' %}
+                                                        </div>
+                                            </div>
+                                              <div class="form-group">
+                                                <label>Moradia</label>
+                                                {% render_field formMae.moradia class+='form-control input-rounded' placeholder+='Digite Aqui' %}
+                                            </div>
+                                                <button type="submit" class="btn btn-pink btn-block btn-rounded" >Cadastrar</button>
+                                          
+                                            </div>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
